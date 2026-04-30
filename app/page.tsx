@@ -4,6 +4,7 @@ import { SkewedMarquee } from "@/components/kinetic-orange/SkewedMarquee";
 import { Navbar } from "@/components/kinetic-orange/Navbar";
 import { WorkGallery } from "@/components/kinetic-orange/WorkGallery";
 import { HorizontalTicker } from "@/components/kinetic-orange/HorizontalTicker";
+import { LightBeamButton } from "@/components/kinetic-orange/LightBeamButton";
 
 
 const SERVICES = [
@@ -185,20 +186,18 @@ export default function Home() {
               full deployment support, and compliance systems that keep you
               audit-ready. One crew. Full stack.
             </p>
-            <a
-              id="contact"
-              href="mailto:hello@onecrew.dev"
-              className="mt-12 inline-flex items-center justify-center rounded-full border-2 border-ink bg-ink px-14 py-5 font-label text-sm uppercase tracking-[-0.02em] text-paper transition duration-200 hover:translate-x-4 hover:scale-110"
-            >
-              Start a project →
-            </a>
+            <div id="contact" className="mt-12">
+              <LightBeamButton href="mailto:growth@onecrewtech.com">
+                Start a project →
+              </LightBeamButton>
+            </div>
           </div>
         </section>
 
         <footer className="border-t-2 border-ink bg-ink px-4 py-10 text-paper sm:px-8">
           <div className="mx-auto flex max-w-[1600px] flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <p className="font-label text-xs uppercase tracking-[-0.02em] text-paper/80">
-              © {new Date().getFullYear()} OneCrew — Software House
+              © {new Date().getFullYear()} OneCrew Technologies
             </p>
             <div className="flex flex-wrap gap-6 font-label text-xs uppercase tracking-[-0.02em]">
               <a
@@ -209,25 +208,17 @@ export default function Home() {
               </a>
               <a
                 className="text-paper transition duration-200 hover:translate-x-4 hover:scale-110 hover:text-brand"
-                href="mailto:hello@onecrew.dev"
+                href="mailto:growth@onecrewtech.com"
               >
                 Email
               </a>
               <a
                 className="text-paper transition duration-200 hover:translate-x-4 hover:scale-110 hover:text-brand"
-                href="https://x.com"
+                href="https://www.linkedin.com/company/onecrew-technologies/"
                 target="_blank"
                 rel="noreferrer"
               >
-                X / Twitter
-              </a>
-              <a
-                className="text-paper transition duration-200 hover:translate-x-4 hover:scale-110 hover:text-brand"
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
+                LinkedIn
               </a>
             </div>
           </div>

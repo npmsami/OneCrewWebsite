@@ -196,7 +196,7 @@ export function Navbar() {
                 Software House
               </p>
               <p className="mt-1 font-label text-[10px] uppercase tracking-[-0.02em] text-brand">
-                hello@onecrew.dev
+                growth@onecrewtech.com
               </p>
             </div>
 

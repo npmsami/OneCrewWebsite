@@ -23,9 +23,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OneCrew — Software House",
+  title: "OneCrew Technologies",
   description:
     "OneCrew builds modern web apps, mobile products, cloud & DevOps infrastructure, AI agents with deployment, and compliance systems.",
+  icons: {
+    icon: "/OneCrewLogo.png",
+    apple: "/OneCrewLogo.png",
+  },
 };
 
 export default function RootLayout({

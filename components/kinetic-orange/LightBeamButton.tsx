@@ -9,11 +9,11 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export interface LightBeamButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface LightBeamButtonProps {
   children: React.ReactNode;
   className?: string;
   href?: string;
+  onClick?: () => void;
   gradientColors?: [string, string, string];
 }
 
@@ -23,7 +23,6 @@ export function LightBeamButton({
   onClick,
   href,
   gradientColors = ["#ff4500", "#ffffff", "#ff4500"],
-  ...props
 }: LightBeamButtonProps) {
   const gradientString = `conic-gradient(from var(--gradient-angle), transparent 0%, ${gradientColors[0]} 40%, ${gradientColors[1]} 50%, transparent 60%, transparent 100%)`;
 
@@ -55,7 +54,6 @@ export function LightBeamButton({
           "transition-shadow duration-300",
           className
         )}
-        {...props}
       >
         <span className="relative z-10 flex items-center gap-2">{children}</span>
 

@@ -1,229 +1,94 @@
-import { ArrowUpRight } from "lucide-react";
-import { RotatingScrollIndicator } from "@/components/kinetic-orange/RotatingScrollIndicator";
-import { SkewedMarquee } from "@/components/kinetic-orange/SkewedMarquee";
-import { Navbar } from "@/components/kinetic-orange/Navbar";
-import { WorkGallery } from "@/components/kinetic-orange/WorkGallery";
-import { HorizontalTicker } from "@/components/kinetic-orange/HorizontalTicker";
-import { LightBeamButton } from "@/components/kinetic-orange/LightBeamButton";
+import Image from "next/image";
+import { ArrowRight, Mail } from "lucide-react";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Services } from "@/components/site/Services";
+import { Work } from "@/components/site/Work";
+import { HowWeWork } from "@/components/site/HowWeWork";
 
-
-const SERVICES = [
-  {
-    index: "01",
-    title: "WEB & MOBILE APPS",
-    tags: ["NEXT.JS", "REACT NATIVE", "TYPESCRIPT", "REST / GRAPHQL"],
-  },
-  {
-    index: "02",
-    title: "CLOUD & DEVOPS",
-    tags: ["AWS", "GCP", "DOCKER", "CI/CD", "KUBERNETES"],
-  },
-  {
-    index: "03",
-    title: "AI AGENTS",
-    tags: ["LLM OPS", "RAG", "DEPLOYMENT", "FINE-TUNING"],
-  },
-  {
-    index: "04",
-    title: "COMPLIANCE",
-    tags: ["SOC 2", "GDPR", "ISO 27001", "AUDIT TRAILS"],
-  },
-];
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2h.05c.53-1 1.84-2.05 3.8-2.05 4.06 0 4.8 2.67 4.8 6.14V23h-4v-6.3c0-1.5-.03-3.43-2.1-3.43-2.1 0-2.42 1.64-2.42 3.33V23h-4V8z" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="bg-brand text-ink">
+    <>
       <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <HowWeWork />
+        <Work />
 
-      <main id="top">
-        {/* ─── HERO ─── */}
-        <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-brand px-4 pb-16 pt-36 text-ink sm:px-8">
-
-          {/* ── Background layer: atmospheric smoke ── */}
-          <div className="pointer-events-none absolute inset-0 z-0 select-none">
-            {/* Atmosphere image */}
-            <div className="absolute inset-0 mix-blend-overlay opacity-70">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://framerusercontent.com/images/9zvwRJAavKKacVyhFCwHyXW1U.png?width=1536&height=1024"
-                alt=""
-                className="h-full w-full object-cover object-center"
-                aria-hidden="true"
-              />
-            </div>
-            {/* Bottom gradient fade — blends atmosphere into the section below */}
-            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-brand" />
-          </div>
-
-          {/* ── Floating hand — left ── */}
-          {/* mobile: anchored top-left, visible inside section
-              md+:   pulled slightly outside for the dramatic bleed effect */}
-          <div
-            className="pointer-events-none absolute -left-[5%] top-[4%] z-10 w-[60vw] max-w-[800px] select-none mix-blend-multiply opacity-90 md:-left-[5%] md:top-[-15%] md:w-[40vw]"
-            style={{ animation: "float-hand-left 12s ease-in-out infinite" }}
-            aria-hidden="true"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://framerusercontent.com/images/KNhiA5A2ykNYqNkj04Hk6BVg5A.png?width=1540&height=1320"
-              alt=""
-              className="h-auto w-full object-contain"
+        {/* CTA */}
+        <section id="contact" className="mx-auto max-w-7xl bg-white px-4 pb-24 sm:px-6 sm:pb-28">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-ink px-6 py-20 text-center text-white sm:px-12 sm:py-24">
+            <div
+              className="pointer-events-none absolute left-1/2 top-full h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(74,98,255,0.55),rgba(0,0,128,0.3)_55%,transparent)]"
+              aria-hidden
             />
-          </div>
-
-          {/* ── Floating hand — right ── */}
-          {/* mobile: anchored bottom-right, visible inside section
-              md+:   pulled slightly outside for the dramatic bleed effect */}
-          <div
-            className="pointer-events-none absolute -right-[5%] bottom-[4%] z-10 w-[55vw] max-w-[700px] select-none mix-blend-multiply opacity-90 md:-right-[5%] md:bottom-[-5%] md:w-[35vw]"
-            style={{ animation: "float-hand-right 14s ease-in-out infinite" }}
-            aria-hidden="true"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://framerusercontent.com/images/X89VFCABCEjjZ4oLGa3PjbOmsA.png?width=1542&height=1002"
-              alt=""
-              className="h-auto w-full object-contain"
-            />
-          </div>
-
-          {/* ── Hero content ── */}
-          <div className="relative z-20 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center text-center">
-            <p className="mb-4 font-label text-xs uppercase tracking-[-0.02em] opacity-70">
-              We Ship. You Scale.
-            </p>
-            <h1 className="font-display text-[9vw] font-normal uppercase leading-[0.88] tracking-[-0.04em]">
-              OneCrew
-              <br />
-              Technologies
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-relaxed opacity-80 sm:text-lg">
-              We build modern web apps, mobile products, cloud infrastructure,
-              AI agents, and compliance systems — end to end, zero compromise.
-            </p>
-          </div>
-
-          <div className="relative z-20 mx-auto mt-10 w-full max-w-[1600px] border-t-2 border-ink">
-            <div className="grid grid-cols-1 items-center gap-8 py-8 md:grid-cols-[1fr_auto_1fr] md:gap-6">
-              <p className="font-label text-left text-sm uppercase tracking-[-0.02em] md:text-base">
-                Remote-first — Ship globally
+            <div className="relative">
+              <h2 className="mx-auto max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight sm:text-5xl">
+                Build Standout Products.
+                <br />
+                Ship Them Faster.
+              </h2>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/65">
+                Tell us what you&apos;re building — from concept to production,
+                one crew takes it all the way.
               </p>
-              <div className="flex justify-center">
-                <RotatingScrollIndicator />
-              </div>
-              <div className="font-display text-right text-lg uppercase leading-[0.9] tracking-[-0.04em] md:text-2xl">
-                Web · Mobile
-                <br />
-                Cloud · AI
-                <br />
-                Compliance
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <SkewedMarquee />
-
-        <section
-          id="services"
-          className="border-t-2 border-ink bg-ink px-4 py-20 text-paper sm:px-8"
-        >
-          <div className="mx-auto max-w-[1600px]">
-            <p className="font-label text-xs uppercase tracking-[-0.02em] text-brand">
-              Capabilities
-            </p>
-            <h2 className="mt-4 max-w-4xl font-display text-5xl uppercase leading-[0.88] tracking-[-0.04em] sm:text-6xl">
-              Everything You Need. One Crew.
-            </h2>
-            <div className="mt-14 divide-y divide-paper/20 border-t border-paper/20">
-              {SERVICES.map((service) => (
-                <article
-                  key={service.index}
-                  className="group relative grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-paper/20 py-10 transition-colors duration-200 hover:bg-paper/[0.05] md:gap-8"
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="mailto:growth@onecrewtech.com"
+                  className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-ink transition hover:bg-mist"
                 >
-                  <span className="font-label text-sm text-brand md:text-base">
-                    {service.index}
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="font-display text-[7vw] font-normal uppercase leading-[0.88] tracking-[-0.04em] transition duration-200 ease-out group-hover:translate-x-4">
-                      {service.title}
-                    </h3>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {service.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-paper/40 px-3 py-1 font-label text-[11px] uppercase tracking-[-0.02em] text-paper"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <ArrowUpRight
-                    className="h-12 w-12 shrink-0 text-brand opacity-0 transition duration-200 ease-out group-hover:translate-x-4 group-hover:rotate-45 group-hover:scale-110 group-hover:opacity-100 md:h-16 md:w-16"
-                    strokeWidth={2.4}
-                    aria-hidden
-                  />
-                </article>
-              ))}
+                  Start a Project
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
+                </a>
+                <a
+                  href="mailto:growth@onecrewtech.com"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm text-white transition hover:bg-white/10"
+                >
+                  <Mail className="h-4 w-4" aria-hidden />
+                  growth@onecrewtech.com
+                </a>
+              </div>
             </div>
           </div>
         </section>
-
-        <WorkGallery />
-
-        <section
-          id="work"
-          className="border-t-2 border-ink bg-brand px-4 py-24 text-ink sm:px-8"
-        >
-          <div className="mx-auto flex max-w-[1200px] flex-col items-center text-center">
-            <h2 className="font-display text-[14vw] font-normal uppercase leading-[0.88] tracking-[-0.04em]">
-              Let&apos;s Build It
-            </h2>
-            <p className="mt-8 max-w-2xl font-body text-base leading-relaxed text-ink/90 sm:text-lg">
-              From concept to production — we deliver scalable web and mobile
-              apps, battle-hardened cloud pipelines, intelligent AI agents with
-              full deployment support, and compliance systems that keep you
-              audit-ready. One crew. Full stack.
-            </p>
-            <div id="contact" className="mt-12">
-              <LightBeamButton href="mailto:growth@onecrewtech.com">
-                Start a project →
-              </LightBeamButton>
-            </div>
-          </div>
-        </section>
-
-        <footer className="border-t-2 border-ink bg-ink px-4 py-10 text-paper sm:px-8">
-          <div className="mx-auto flex max-w-[1600px] flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <p className="font-label text-xs uppercase tracking-[-0.02em] text-paper/80">
-              © {new Date().getFullYear()} OneCrew Technologies
-            </p>
-            <div className="flex flex-wrap gap-6 font-label text-xs uppercase tracking-[-0.02em]">
-              <a
-                className="text-paper transition duration-200 hover:translate-x-4 hover:scale-110 hover:text-brand"
-                href="#top"
-              >
-                Back to top
-              </a>
-              <a
-                className="text-paper transition duration-200 hover:translate-x-4 hover:scale-110 hover:text-brand"
-                href="mailto:growth@onecrewtech.com"
-              >
-                Email
-              </a>
-              <a
-                className="text-paper transition duration-200 hover:translate-x-4 hover:scale-110 hover:text-brand"
-                href="https://www.linkedin.com/company/onecrew-technologies/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </footer>
       </main>
-    </div>
+
+      <footer className="border-t border-black/5 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink">
+              <Image src="/logo.svg" alt="" width={20} height={20} className="h-5 w-5 brightness-0 invert" />
+            </span>
+            <span className="text-sm text-muted">
+              © {new Date().getFullYear()} OneCrew Technologies
+            </span>
+          </div>
+          <nav className="flex flex-wrap items-center gap-6 text-sm text-muted" aria-label="Footer">
+            <a href="#services" className="transition hover:text-ink">Services</a>
+            <a href="#work" className="transition hover:text-ink">Work</a>
+            <a href="mailto:growth@onecrewtech.com" className="transition hover:text-ink">Email</a>
+            <a
+              href="https://www.linkedin.com/company/onecrew-technologies/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 transition hover:text-ink"
+            >
+              <LinkedInIcon className="h-4 w-4" /> LinkedIn
+            </a>
+          </nav>
+        </div>
+      </footer>
+    </>
   );
 }

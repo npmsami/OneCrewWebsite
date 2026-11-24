@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Inter, Space_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const archivo = Archivo_Black({
-  weight: "400",
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-archivo",
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-space",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
@@ -40,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${spaceMono.variable} ${inter.variable} h-full scroll-smooth antialiased`}
+      className={`${jakarta.variable} ${inter.variable} h-full scroll-smooth antialiased`}
     >
       <body className="font-body min-h-full">{children}</body>
     </html>
